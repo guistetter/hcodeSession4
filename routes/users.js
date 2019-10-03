@@ -1,7 +1,8 @@
-let express = require('express');
-let routes = express.Router();
+//consign torna obsoleto let express = require('express');
+//consign torna obsoleto let routes = express.Router();
 
-routes.get('/', (req, res)=>{//podemos tirar o users e deixar só /, referenciamos 'users' no use do index.js
+module.exports = (app)=> {//consign é como se tivesse uma func que recebe o app
+    app.get('/users', (req, res)=>{
     res.statusCode = 200;
     res.setHeader('Content.type', 'application/json');
     res.json ({// não é necessario JSON.stringify
@@ -12,7 +13,7 @@ routes.get('/', (req, res)=>{//podemos tirar o users e deixar só /, referenciam
         }]
     });
 });
-routes.get('/admin', (req,res)=>{//podemos tirar /users e deixar só /admin
+app.get('/users/admin', (req,res)=>{//podemos tirar /users e deixar só /admin
     res.statusCode = 200;
     res.setHeader('Content.type', 'application/json');
     res.json ({// não é necessario JSON.stringify
@@ -23,4 +24,4 @@ routes.get('/admin', (req,res)=>{//podemos tirar /users e deixar só /admin
         }]
     });
 });
-module.exports = routes;
+};

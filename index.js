@@ -1,10 +1,8 @@
 const express = require('express');//carregamos modulo http
-let routesIndex = require('./routes/index.js');
-let routesUsers = require('./routes/users.js')
+const consign = require('consign');//substitui require, use..
+let app = express();
 
-let app = express(); 
-app.use(routesIndex);
-app.use('/users', routesUsers);
+consign().include('routes').into(app);
 
 app.listen(3000, '127.0.0.1', ()=>{
     console.log('servidor rodando');
