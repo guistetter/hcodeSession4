@@ -1,7 +1,7 @@
-const http = require('http');//carregamos modulo http
+const express = require('express');//carregamos modulo http
 
 let server = http.createServer((req, res)=>{
-
+asdasdasdasdas
     console.log('url:', req.url);
     console.log('method:', req.method);
     switch(req.url){ //rotas urls..
